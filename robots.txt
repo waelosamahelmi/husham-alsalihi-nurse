@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://waelosamahelmi.github.io/husham-alsalihi-nurse/sitemap.xml
