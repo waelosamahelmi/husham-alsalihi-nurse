@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Husham Al-Salihi | Sairaanhoitaja — Registered Nurse Finland</title>
+    <meta name="description" content="Husham Al-Salihi — Sairaanhoitaja (AMK), Xamk. Registered Nurse specialized in infection control, ICU, elderly care. حشام الصالحي ممرض مجاز.">
+    <meta name="keywords" content="Husham Al-Salihi, sairaanhoitaja, nurse, ممرض, حشام الصالحي, Xamk, infection control, ICU, tehohoito, vanhustenhoito, healthcare, Finland">
+    <meta name="author" content="Husham Al-Salihi">
+    <meta property="og:title" content="Husham Al-Salihi | Sairaanhoitaja — Registered Nurse">
+    <meta property="og:description" content="Professional nurse graduated from Xamk. Specialized in infection control and ICU care.">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://husham-alsalihi.surge.sh">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0D4F4F;
+            --primary-light: #1A7A7A;
+            --accent: #2EC4B6;
+            --accent-light: #5EDDCF;
+            --medical-blue: #1B6B93;
+            --medical-teal: #178B8B;
+            --bg: #F0F7F7;
+            --card-bg: #FFFFFF;
+            --text: #1A2B3C;
+            --text-light: #5A6B7C;
+            --gradient: linear-gradient(135deg, #0D4F4F 0%, #1A7A7A 40%, #2EC4B6 100%);
+            --gradient-medical: linear-gradient(135deg, #0D4F4F 0%, #1B6B93 50%, #178B8B 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Heartbeat line animation */
+        .heartbeat-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            overflow: hidden;
+            opacity: 0.15;
+        }
+        .heartbeat-line svg {
+            width: 200%;
+            height: 80px;
+            animation: heartbeat-scroll 4s linear infinite;
+        }
+        @keyframes heartbeat-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Medical cross pattern */
+        .medical-pattern {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(46,196,182,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(27,107,147,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Pulse dot */
+        .pulse-dot {
+            width: 12px; height: 12px;
+            background: #2EC4B6;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(46,196,182,0.6); }
+            50% { box-shadow: 0 0 0 12px rgba(46,196,182,0); }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-medical);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 0v8h-8v4h8v8h4v-8h8v-4h-8V0h-4z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative; z-index: 2;
+            text-align: center; padding: 2rem; max-width: 800px;
+        }
+
+        .hero-photo {
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 4px solid rgba(46,196,182,0.5);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 30px rgba(46,196,182,0.3), 0 20px 60px rgba(0,0,0,0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem; color: white;
+            margin-bottom: 0.5rem;
+        }
+        .hero .subtitle {
+            font-size: 1.3rem; color: rgba(255,255,255,0.9);
+            font-weight: 300; margin-bottom: 0.3rem;
+        }
+        .hero .tagline {
+            font-size: 0.95rem; color: rgba(255,255,255,0.7);
+            font-weight: 300; margin-bottom: 1.5rem;
+        }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(46,196,182,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46,196,182,0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            color: white; font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stethoscope-icon { font-size: 1.3rem; }
+
+        .scroll-indicator {
+            position: absolute; bottom: 30px; left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.6);
+            animation: bounce 2s infinite; font-size: 1.5rem;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Nav */
+        .nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            padding: 0.8rem 1.5rem; transition: all 0.3s ease;
+        }
+        .nav.scrolled {
+            background: rgba(13,79,79,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-logo {
+            color: white; font-weight: 700; font-size: 1.1rem;
+            text-decoration: none; display: flex; align-items: center; gap: 6px;
+        }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-links a {
+            color: rgba(255,255,255,0.85); text-decoration: none;
+            font-size: 0.85rem; font-weight: 500; transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent-light); }
+
+        .lang-toggle {
+            display: flex; gap: 0.3rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 25px; padding: 0.2rem;
+        }
+        .lang-btn {
+            padding: 0.25rem 0.6rem; border: none;
+            background: transparent; color: rgba(255,255,255,0.6);
+            border-radius: 20px; cursor: pointer;
+            font-size: 0.75rem; font-weight: 600; transition: all 0.3s;
+        }
+        .lang-btn.active {
+            background: rgba(46,196,182,0.4); color: white;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem; color: var(--primary);
+            margin-bottom: 0.8rem; display: flex; align-items: center; gap: 12px;
+        }
+        .section-title .med-icon { font-size: 1.8rem; }
+        .section-title::after {
+            content: ''; display: block; width: 50px; height: 3px;
+            background: var(--accent); border-radius: 2px; margin-top: 0.6rem;
+        }
+        .section-title { flex-wrap: wrap; }
+        .section-subtitle {
+            color: var(--text-light); font-size: 1rem;
+            margin-bottom: 2.5rem; max-width: 600px;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 2.5rem; align-items: start;
+        }
+        .about-text p {
+            color: var(--text-light); margin-bottom: 1.2rem;
+            font-size: 1rem; line-height: 1.8;
+        }
+        .about-stats {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
+        }
+        .stat-card {
+            background: var(--card-bg); padding: 1.3rem;
+            border-radius: 16px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-number {
+            font-size: 2.2rem; font-weight: 700; color: var(--medical-teal);
+        }
+        .stat-label { font-size: 0.8rem; color: var(--text-light); font-weight: 500; }
+        .stat-icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
+
+        /* Experience */
+        .experience-bg {
+            background: linear-gradient(180deg, var(--bg) 0%, #E4F0F0 100%);
+            position: relative;
+        }
+        .timeline { position: relative; padding-left: 2.5rem; }
+        .timeline::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%);
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative; margin-bottom: 2rem; padding: 1.5rem;
+            background: var(--card-bg); border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .timeline-item:hover { transform: translateX(5px); }
+        .timeline-item::before {
+            content: ''; position: absolute;
+            left: -2.1rem; top: 1.5rem;
+            width: 12px; height: 12px;
+            background: var(--accent); border-radius: 50%;
+            border: 3px solid var(--bg);
+        }
+        .timeline-item h3 {
+            color: var(--primary); font-size: 1.1rem; margin-bottom: 0.2rem;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .timeline-item .period {
+            color: var(--accent); font-size: 0.82rem;
+            font-weight: 600; margin-bottom: 0.4rem;
+        }
+        .timeline-item p { color: var(--text-light); font-size: 0.9rem; }
+
+        /* Photo in timeline */
+        .timeline-photo {
+            width: 100%; max-height: 200px;
+            object-fit: cover; border-radius: 12px;
+            margin-top: 1rem; border: 2px solid var(--bg);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
+        }
+        .skill-card {
+            background: var(--card-bg); padding: 1.8rem;
+            border-radius: 16px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative; overflow: hidden;
+        }
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+        }
+        .skill-card::after {
+            content: '+'; position: absolute;
+            top: -20px; right: -10px;
+            font-size: 6rem; font-weight: 700;
+            color: rgba(46,196,182,0.05);
+            pointer-events: none;
+        }
+        .skill-icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
+        .skill-card h3 {
+            color: var(--primary); margin-bottom: 0.4rem; font-size: 1rem;
+        }
+        .skill-card p { color: var(--text-light); font-size: 0.85rem; }
+
+        /* Thesis */
+        .thesis-card {
+            background: var(--gradient-medical); color: white;
+            padding: 2.5rem; border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(13,79,79,0.3);
+            position: relative; overflow: hidden;
+        }
+        .thesis-card::before {
+            content: ''; position: absolute;
+            top: -50px; right: -50px;
+            width: 200px; height: 200px;
+            background: rgba(46,196,182,0.1);
+            border-radius: 50%;
+        }
+        .thesis-content {
+            display: flex; gap: 2rem; align-items: start;
+            position: relative; z-index: 1;
+        }
+        .thesis-icon { font-size: 3.5rem; flex-shrink: 0; }
+        .thesis-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem; margin-bottom: 0.6rem;
+        }
+        .thesis-card p { opacity: 0.9; line-height: 1.7; font-size: 0.95rem; }
+        .thesis-badge {
+            display: inline-block;
+            background: rgba(46,196,182,0.3);
+            padding: 0.3rem 1rem; border-radius: 20px;
+            font-size: 0.8rem; margin-top: 0.6rem;
+        }
+        .thesis-link {
+            color: rgba(255,255,255,0.9); text-decoration: underline;
+            font-size: 0.9rem; display: inline-block; margin-top: 0.8rem;
+            transition: color 0.3s;
+        }
+        .thesis-link:hover { color: white; }
+        .diploma-img {
+            width: 100%; max-height: 250px;
+            object-fit: contain; border-radius: 12px;
+            margin-top: 1.5rem; border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        /* Contact */
+        .contact-bg { background: #E4F0F0; }
+        .contact-cards {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1.5rem; max-width: 600px;
+        }
+        .contact-card {
+            background: var(--card-bg); padding: 2rem;
+            border-radius: 16px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s; text-decoration: none;
+            color: inherit; display: block;
+            border-bottom: 4px solid var(--accent);
+        }
+        .contact-card:hover { transform: translateY(-5px); }
+        .contact-icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
+        .contact-card h3 { color: var(--primary); margin-bottom: 0.3rem; }
+        .contact-card p { color: var(--text-light); font-size: 0.9rem; }
+
+        /* Footer */
+        .footer {
+            background: var(--primary); color: rgba(255,255,255,0.7);
+            text-align: center; padding: 1.5rem; font-size: 0.8rem;
+        }
+
+        /* Floating medical icons */
+        .floating-icons {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none; overflow: hidden;
+        }
+        .floating-icons span {
+            position: absolute; font-size: 1.5rem;
+            opacity: 0.08; animation: float-icon 8s ease-in-out infinite;
+        }
+        .floating-icons span:nth-child(1) { top: 15%; left: 5%; animation-delay: 0s; }
+        .floating-icons span:nth-child(2) { top: 25%; right: 8%; animation-delay: 1.5s; }
+        .floating-icons span:nth-child(3) { top: 50%; left: 10%; animation-delay: 3s; }
+        .floating-icons span:nth-child(4) { top: 70%; right: 5%; animation-delay: 4.5s; }
+        .floating-icons span:nth-child(5) { top: 85%; left: 15%; animation-delay: 2s; }
+        @keyframes float-icon {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero .subtitle { font-size: 1.1rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .contact-cards { grid-template-columns: 1fr; }
+            .thesis-content { flex-direction: column; text-align: center; }
+            .nav-links { display: none; }
+            .section { padding: 3rem 1.2rem; }
+            .section-title { font-size: 1.8rem; }
+        }
+
+        /* RTL support for Arabic */
+        [dir="rtl"] { text-align: right; }
+        [dir="rtl"] .timeline { padding-left: 0; padding-right: 2.5rem; }
+        [dir="rtl"] .timeline::before { left: auto; right: 0; }
+        [dir="rtl"] .timeline-item::before { left: auto; right: -2.1rem; }
+        [dir="rtl"] .stat-card { border-left: none; border-right: 4px solid var(--accent); }
+        [dir="rtl"] .section-title { direction: rtl; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">🩺 H. Al-Salihi</a>
+            <ul class="nav-links">
+                <li><a href="#about" data-fi="Tietoa" data-en="About" data-ar="عني">Tietoa</a></li>
+                <li><a href="#experience" data-fi="Kokemus" data-en="Experience" data-ar="الخبرات">Kokemus</a></li>
+                <li><a href="#skills" data-fi="Osaaminen" data-en="Skills" data-ar="المهارات">Osaaminen</a></li>
+                <li><a href="#contact" data-fi="Yhteystiedot" data-en="Contact" data-ar="التواصل">Yhteystiedot</a></li>
+            </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="setLang('fi')">FI</button>
+                <button class="lang-btn" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('ar')">ع</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="floating-icons">
+            <span>🩺</span><span>💉</span><span>🏥</span><span>❤️</span><span>🧬</span>
+        </div>
+        <div class="heartbeat-line">
+            <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+                <polyline fill="none" stroke="rgba(46,196,182,0.6)" stroke-width="2"
+                    points="0,40 100,40 120,40 140,10 160,70 180,40 200,40 300,40 320,40 340,10 360,70 380,40 400,40 500,40 520,40 540,10 560,70 580,40 600,40 700,40 720,40 740,10 760,70 780,40 800,40 900,40 920,40 940,10 960,70 980,40 1000,40 1100,40 1120,40 1140,10 1160,70 1180,40 1200,40"/>
+            </svg>
+        </div>
+        <div class="hero-content">
+            <img src="photo.jpg" alt="Husham Al-Salihi" class="hero-photo">
+            <div class="hero-badge">
+                <span class="stethoscope-icon">🩺</span>
+                <span data-fi="Sairaanhoitaja (AMK)" data-en="Registered Nurse (BScN)" data-ar="ممرض مجاز">Sairaanhoitaja (AMK)</span>
+            </div>
+            <h1>Husham Al-Salihi</h1>
+            <p class="subtitle" data-fi="Sairaanhoitaja" data-en="Registered Nurse" data-ar="ممرض">Sairaanhoitaja</p>
+            <p class="tagline" data-fi="Ammattitaitoista ja empaattista hoitotyötä" data-en="Professional and compassionate nursing care" data-ar="رعاية تمريضية مهنية وعطوفة">Ammattitaitoista ja empaattista hoitotyötä</p>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+        <h2 class="section-title">
+            <span class="med-icon">👨‍⚕️</span>
+            <span data-fi="Tietoa minusta" data-en="About Me" data-ar="عني">Tietoa minusta</span>
+        </h2>
+        <p class="section-subtitle" data-fi="Intohimoinen ja omistautunut sairaanhoitaja" data-en="Passionate and dedicated nurse" data-ar="ممرض شغوف ومتفاني">Intohimoinen ja omistautunut sairaanhoitaja</p>
+        <div class="about-grid">
+            <div class="about-text">
+                <p data-fi="Olen Husham Al-Salihi, valmistunut sairaanhoitaja (Xamk — Kaakkois-Suomen ammattikorkeakoulu). Minulla on monipuolista kokemusta hoitotyöstä eri ympäristöissä, mukaan lukien vanhustenhoito, mielenterveystyö ja sairaalahoito."
+                   data-en="I am Husham Al-Salihi, a registered nurse graduated from Xamk — South Eastern Finland University of Applied Sciences. I have diverse experience in nursing across multiple settings, including elderly care, mental health, and hospital care."
+                   data-ar="أنا حشام الصالحي، ممرض مجاز تخرجت من جامعة Xamk للعلوم التطبيقية في فنلندا. لدي خبرة متنوعة في التمريض في بيئات متعددة، بما في ذلك رعاية المسنين والصحة العقلية والرعاية في المستشفيات.">
+                    Olen Husham Al-Salihi, valmistunut sairaanhoitaja (Xamk — Kaakkois-Suomen ammattikorkeakoulu). Minulla on monipuolista kokemusta hoitotyöstä eri ympäristöissä, mukaan lukien vanhustenhoito, mielenterveystyö ja sairaalahoito.
+                </p>
+                <p data-fi="Opinnäytetyöni aiheena oli sairaalainfektioiden torjunta ja ehkäisy, mikä antoi minulle syvällistä asiantuntemusta infektioiden torjunnasta ja hygieniakäytännöistä."
+                   data-en="My thesis focused on controlling and preventing healthcare-associated infections, giving me deep expertise in infection control and hygiene practices."
+                   data-ar="تناولت أطروحتي موضوع مكافحة عدوى المستشفيات والوقاية منها، مما أعطاني خبرة عميقة في مكافحة العدوى وممارسات النظافة.">
+                    Opinnäytetyöni aiheena oli sairaalainfektioiden torjunta ja ehkäisy, mikä antoi minulle syvällistä asiantuntemusta infektioiden torjunnasta ja hygieniakäytännöistä.
+                </p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">🏥</div>
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label" data-fi="kuukautta sairaalassa" data-en="months in hospital" data-ar="أشهر في المستشفى">kuukautta sairaalassa</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💓</div>
+                    <span class="stat-number">5</span>
+                    <span class="stat-label" data-fi="viikkoa teho-osastolla" data-en="weeks in ICU" data-ar="أسابيع في العناية المركزة">viikkoa teho-osastolla</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👴</div>
+                    <span class="stat-number">4</span>
+                    <span class="stat-label" data-fi="kuukautta vanhustenhoidossa" data-en="months in elderly care" data-ar="أشهر في رعاية المسنين">kuukautta vanhustenhoidossa</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🧠</div>
+                    <span class="stat-number">210</span>
+                    <span class="stat-label" data-fi="opintopistettä (ECTS)" data-en="ECTS credits" data-ar="نقطة دراسية">opintopistettä (ECTS)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <div class="experience-bg">
+        <div class="medical-pattern"></div>
+        <section class="section" id="experience">
+            <h2 class="section-title">
+                <span class="med-icon">📋</span>
+                <span data-fi="Kokemus" data-en="Experience" data-ar="الخبرات">Kokemus</span>
+            </h2>
+            <p class="section-subtitle" data-fi="Monipuolista kokemusta hoitotyöstä" data-en="Diverse nursing experience" data-ar="خبرة تمريضية متنوعة">Monipuolista kokemusta hoitotyöstä</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3><span>🏥</span> <span data-fi="Sairaalahoito" data-en="Hospital Nursing" data-ar="تمريض المستشفيات">Sairaalahoito</span></h3>
+                    <div class="period" data-fi="5 kuukautta" data-en="5 months" data-ar="٥ أشهر">5 kuukautta</div>
+                    <p data-fi="Monipuolista sairaalatyötä eri osastoilla. Sisälsi 5 viikon jakson teho-osastolla, jossa hoidin kriittisesti sairaita potilaita."
+                       data-en="Diverse hospital nursing across multiple departments. Included a 5-week rotation in the ICU, caring for critically ill patients."
+                       data-ar="تمريض متنوع في عدة أقسام بالمستشفى. تضمن ٥ أسابيع في وحدة العناية المركزة لرعاية المرضى الحرجين.">
+                        Monipuolista sairaalatyötä eri osastoilla. Sisälsi 5 viikon jakson teho-osastolla, jossa hoidin kriittisesti sairaita potilaita.
+                    </p>
+                    <img src="hospital.jpg" alt="Hospital" class="timeline-photo">
+                </div>
+                <div class="timeline-item">
+                    <h3><span>💓</span> <span data-fi="Teho-osasto (ICU)" data-en="Intensive Care Unit (ICU)" data-ar="وحدة العناية المركزة">Teho-osasto (ICU)</span></h3>
+                    <div class="period" data-fi="5 viikkoa" data-en="5 weeks" data-ar="٥ أسابيع">5 viikkoa</div>
+                    <p data-fi="Kriittisesti sairaiden potilaiden hoito teho-osastolla. Kokemusta elintoimintojen seurannasta, hengityslaitteiden käytöstä ja akuuttien tilanteiden hallinnasta."
+                       data-en="Critical care nursing in the ICU. Experience with vital signs monitoring, ventilator management, and acute situation handling."
+                       data-ar="تمريض الرعاية الحرجة في العناية المركزة. خبرة في مراقبة العلامات الحيوية وأجهزة التنفس والتعامل مع الحالات الحادة.">
+                        Kriittisesti sairaiden potilaiden hoito teho-osastolla. Kokemusta elintoimintojen seurannasta, hengityslaitteiden käytöstä ja akuuttien tilanteiden hallinnasta.
+                    </p>
+                    <img src="icu.jpg" alt="ICU Monitoring Station" class="timeline-photo">
+                </div>
+                <div class="timeline-item">
+                    <h3><span>👴</span> <span data-fi="Vanhustenhoito" data-en="Elderly Care" data-ar="رعاية المسنين">Vanhustenhoito</span></h3>
+                    <div class="period" data-fi="4 kuukautta" data-en="4 months" data-ar="٤ أشهر">4 kuukautta</div>
+                    <p data-fi="Ikääntyneiden hoitotyö hoivakodissa. Päivittäisten toimintojen tukeminen, lääkehoito ja asiakaslähtöinen hoitotyö."
+                       data-en="Elderly care in a nursing home. Supporting daily activities, medication management, and client-centered care."
+                       data-ar="رعاية المسنين في دار الرعاية. دعم الأنشطة اليومية وإدارة الأدوية والرعاية المتمحورة حول المريض.">
+                        Ikääntyneiden hoitotyö hoivakodissa. Päivittäisten toimintojen tukeminen, lääkehoito ja asiakaslähtöinen hoitotyö.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <h3><span>🧠</span> <span data-fi="Mielenterveystyö" data-en="Mental Health Nursing" data-ar="تمريض الصحة العقلية">Mielenterveystyö</span></h3>
+                    <div class="period" data-fi="1 kuukausi" data-en="1 month" data-ar="شهر واحد">1 kuukausi</div>
+                    <p data-fi="Mielenterveyspotilaiden hoito ja tukeminen. Kokemusta terapeuttisuudesta ja moniammatillisesta yhteistyöstä."
+                       data-en="Mental health patient care and support. Experience with therapeutic communication and multidisciplinary collaboration."
+                       data-ar="رعاية ودعم مرضى الصحة العقلية. خبرة في التواصل العلاجي والعمل الجماعي متعدد التخصصات.">
+                        Mielenterveyspotilaiden hoito ja tukeminen. Kokemusta terapeuttisuudesta ja moniammatillisesta yhteistyöstä.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Thesis -->
+            <div class="thesis-card" style="margin-top: 2.5rem;">
+                <div class="thesis-content">
+                    <div class="thesis-icon">🔬</div>
+                    <div>
+                        <h3 data-fi="Opinnäytetyö — Xamk 2025" data-en="Bachelor's Thesis — Xamk 2025" data-ar="أطروحة التخرج — Xamk ٢٠٢٥">Opinnäytetyö — Xamk 2025</h3>
+                        <p data-fi="The Effective Nursing Interventions for Controlling and Preventing Health Care-Associated Infections. Tutkimus keskittyi hoitajien infektioiden torjunnan ja ehkäisyn (IPC) käytäntöjen noudattamiseen ja sairaalainfektioiden vähentämiseen."
+                           data-en="The Effective Nursing Interventions for Controlling and Preventing Health Care-Associated Infections. Research focused on nursing compliance with infection prevention and control (IPC) protocols and reducing healthcare-associated infections."
+                           data-ar="التدخلات التمريضية الفعالة لمكافحة عدوى المستشفيات والوقاية منها. ركز البحث على التزام الممرضين ببروتوكولات الوقاية من العدوى ومكافحتها.">
+                            The Effective Nursing Interventions for Controlling and Preventing Health Care-Associated Infections. Tutkimus keskittyi hoitajien infektioiden torjunnan ja ehkäisyn (IPC) käytäntöjen noudattamiseen ja sairaalainfektioiden vähentämiseen.
+                        </p>
+                        <span class="thesis-badge" data-fi="🎓 Erikoisosaaminen: Infektioiden torjunta" data-en="🎓 Specialization: Infection Control" data-ar="🎓 تخصص: مكافحة العدوى">🎓 Erikoisosaaminen: Infektioiden torjunta</span>
+                        <br>
+                        <a href="https://www.theseus.fi/handle/10024/907253" target="_blank" class="thesis-link">📄 <span data-fi="Lue opinnäytetyö Theseuksessa →" data-en="Read thesis on Theseus →" data-ar="اقرأ الأطروحة على Theseus ←">Lue opinnäytetyö Theseuksessa →</span></a>
+                    </div>
+                </div>
+                <img src="diploma.jpg" alt="XAMK Diploma" class="diploma-img">
+            </div>
+        </section>
+    </div>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+        <h2 class="section-title">
+            <span class="med-icon">💊</span>
+            <span data-fi="Osaaminen" data-en="Skills & Expertise" data-ar="المهارات والخبرات">Osaaminen</span>
+        </h2>
+        <p class="section-subtitle" data-fi="Ammatilliset taidot ja erikoisosaaminen" data-en="Professional skills and specializations" data-ar="المهارات المهنية والتخصصات">Ammatilliset taidot ja erikoisosaaminen</p>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">🏥</div>
+                <h3 data-fi="Sairaalahoito" data-en="Hospital Care" data-ar="الرعاية في المستشفى">Sairaalahoito</h3>
+                <p data-fi="Monipuolinen kokemus sairaalan eri osastoilta" data-en="Diverse experience across hospital departments" data-ar="خبرة متنوعة في أقسام المستشفى المختلفة">Monipuolinen kokemus sairaalan eri osastoilta</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">💓</div>
+                <h3 data-fi="Tehohoito" data-en="Intensive Care" data-ar="العناية المركزة">Tehohoito</h3>
+                <p data-fi="Kriittisesti sairaiden potilaiden hoitokokemus" data-en="ICU experience with critically ill patients" data-ar="خبرة في رعاية المرضى الحرجين">Kriittisesti sairaiden potilaiden hoitokokemus</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🦠</div>
+                <h3 data-fi="Infektioiden torjunta" data-en="Infection Control" data-ar="مكافحة العدوى">Infektioiden torjunta</h3>
+                <p data-fi="Erikoisosaaminen sairaalainfektioiden ehkäisyssä" data-en="Specialized expertise in infection prevention" data-ar="خبرة متخصصة في الوقاية من العدوى">Erikoisosaaminen sairaalainfektioiden ehkäisyssä</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">👴</div>
+                <h3 data-fi="Vanhustenhoito" data-en="Elderly Care" data-ar="رعاية المسنين">Vanhustenhoito</h3>
+                <p data-fi="Ikääntyneiden hoito ja asiakaslähtöinen työ" data-en="Elderly care and client-centered nursing" data-ar="رعاية المسنين والتمريض المتمحور حول المريض">Ikääntyneiden hoito ja asiakaslähtöinen työ</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🧠</div>
+                <h3 data-fi="Mielenterveystyö" data-en="Mental Health" data-ar="الصحة العقلية">Mielenterveystyö</h3>
+                <p data-fi="Terapeuttinen vuorovaikutus ja moniammatillisuus" data-en="Therapeutic communication and multidisciplinary work" data-ar="التواصل العلاجي والعمل متعدد التخصصات">Terapeuttinen vuorovaikutus ja moniammatillisuus</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">💊</div>
+                <h3 data-fi="Lääkehoito" data-en="Medication Management" data-ar="إدارة الأدوية">Lääkehoito</h3>
+                <p data-fi="Turvallinen lääkehoidon toteuttaminen ja seuranta" data-en="Safe medication administration and monitoring" data-ar="إعطاء الأدوية بأمان ومراقبتها">Turvallinen lääkehoidon toteuttaminen ja seuranta</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <div class="contact-bg">
+        <section class="section" id="contact">
+            <h2 class="section-title">
+                <span class="med-icon">📞</span>
+                <span data-fi="Yhteystiedot" data-en="Contact" data-ar="التواصل">Yhteystiedot</span>
+            </h2>
+            <p class="section-subtitle" data-fi="Ota yhteyttä — soittamalla tai viestillä" data-en="Get in touch — by call or message" data-ar="تواصل معي — بالاتصال أو الرسالة">Ota yhteyttä — soittamalla tai viestillä</p>
+            <div class="contact-cards">
+                <a href="tel:+358451551998" class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3 data-fi="Soita" data-en="Call" data-ar="اتصل">Soita</h3>
+                    <p>045 155 1998</p>
+                </a>
+                <a href="https://wa.me/358451551998" target="_blank" class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3 data-fi="WhatsApp" data-en="WhatsApp" data-ar="واتساب">WhatsApp</h3>
+                    <p data-fi="Lähetä viesti" data-en="Send a message" data-ar="أرسل رسالة">Lähetä viesti</p>
+                </a>
+            </div>
+            <div style="text-align:center; margin-top: 1.5rem;">
+                <p style="color: var(--text-light); font-size: 0.9rem;">
+                    <span class="pulse-dot"></span>
+                    <span data-fi="Avoin uusille mahdollisuuksille" data-en="Open to new opportunities" data-ar="منفتح على فرص جديدة">Avoin uusille mahdollisuuksille</span>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Husham Al-Salihi | <span data-fi="Sairaanhoitaja (AMK)" data-en="Registered Nurse (BScN)" data-ar="ممرض مجاز">Sairaanhoitaja (AMK)</span> | Xamk</p>
+    </footer>
+
+    <script>
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Language toggle with RTL support
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const btnLang = btn.textContent.trim();
+                const isActive = (lang === 'fi' && btnLang === 'FI') || 
+                                 (lang === 'en' && btnLang === 'EN') || 
+                                 (lang === 'ar' && btnLang === 'ع');
+                btn.classList.toggle('active', isActive);
+            });
+
+            // RTL for Arabic
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = text;
+                    } else {
+                        el.textContent = text;
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
